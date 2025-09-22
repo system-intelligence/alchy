@@ -10,8 +10,6 @@ use Illuminate\Notifications\Notifiable;
 // added for alchy model relationship
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-
-
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -57,4 +55,3 @@ class User extends Authenticatable
         return $this->hasMany(alchy::class);
     }
 }
-

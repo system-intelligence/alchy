@@ -36,6 +36,13 @@ class alchyController extends Controller
     return view('home', ['alchies' => $alchies]);
 }
 
+public function latest(Request $request)
+{
+    $alchies = alchy::with('user')->latest()->take(20)->get();
+
+    return response()->json($alchies);
+}
+
     /**
      * Show the form for creating a new resource.
      */
