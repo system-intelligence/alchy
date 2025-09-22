@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+// added for alchy model relationship
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+
+
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -45,4 +50,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Define relationship with alchy model
+    public function alchies(): HasMany
+    {
+        return $this->hasMany(alchy::class);
+    }
 }
+
